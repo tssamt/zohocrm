@@ -214,7 +214,7 @@ class Response
             $this->code = (string) $xml->result->code;
             # support deleteRecords with idList.
             # EU DC has shorted record Ids, so matches 16 or more digits
-            preg_match_all('/[0-9]{16,}/', $this->message, $matches);
+            preg_match_all('/[0-9]{10,20}/', $this->message, $matches);
             $this->recordId = implode(";",$matches[0]);
         } else {
             throw new ZohoCRMException('Unknown Zoho CRM response format.');
